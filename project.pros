@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Driver",
+    "project_name": "Drive Skills",
     "target": "v5",
     "templates": {
       "kernel": {
@@ -397,7 +397,7 @@
       }
     },
     "upload_options": {
-      "slot": 3,
+      "slot": 2,
       "description": "Driver Skills Code",
       "icon": "pros"
     },
