@@ -86,3 +86,22 @@ void opcontrol() {
 		pros::delay(20);
 	}
 }
+
+double getYawQuaternion() {
+	pros::quaternion_s_t qt = imu.get_quaternion();
+
+	//error fetching quat, retry
+	if (qt.w == PROS_ERR_F) {
+		qt = imu.get_quaternion();
+		if (qt.w == PROS_ERR_F) {
+			pros::lcd::set_text(1, "ERROR: IMU Quaternion Fetch Failed");
+			return -1.0;
+		}
+	}
+
+	//convert quat to yaw
+	double yaw = atan2(2 * ((qt.w * qt.z) + (qt.x * qt.y)), 1 - (2 * ((qt.y * qt.y) + (qt.z * qt.z)))); //yaw formula = atan2(2(wz + xy), 1 - 2(y^2 + z^2))
+
+	//returns yaw converted from rad to deg; angle is returned from -180 to 180 (+ 180 for [0, 360])
+	return ((yaw * (180 / M_PI)) + 180);
+}

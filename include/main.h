@@ -69,6 +69,8 @@ void disabled(void);
 void competition_initialize(void);
 void opcontrol(void);
 
+double getYawQuaternion();
+
 #ifdef __cplusplus
 }
 #endif
