@@ -69,9 +69,6 @@ void disabled(void);
 void competition_initialize(void);
 void opcontrol(void);
 
-void turnPID(double target, double weightAdjustment = 0);
-void drivePID();
-
 #ifdef __cplusplus
 }
 #endif
