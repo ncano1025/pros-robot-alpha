@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Driver",
+    "project_name": "Competition",
     "target": "v5",
     "templates": {
       "kernel": {
@@ -397,8 +397,8 @@
       }
     },
     "upload_options": {
-      "slot": 3,
-      "description": "Driver Skills Code",
+      "slot": 1,
+      "description": "Competition Code",
       "icon": "pros"
     },
     "use_early_access": false
