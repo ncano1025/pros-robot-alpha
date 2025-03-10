@@ -12,10 +12,9 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
-		while (imu.is_calibrating())
-	{
+	while (imu.is_calibrating())
 		pros::delay(10);
-	}
+	
 	drive->setMaxVelocity(100);
 	
 	// turn towards MG1
@@ -24,9 +23,7 @@ void autonomous() {
 	// drive towards MG1
 	drive->moveRawAsync(-1050);
 	pros::delay(2250);
-
 	clamp.set_value(true);
-
 	intake.move_voltage(12000);
 
 	// turn towards RING1
@@ -42,7 +39,6 @@ void autonomous() {
 	// drive towards RING2
 	drive->moveRawAsync(300);
 	pros::delay(1800);
-
 	drive->moveRaw(-250);
 
 	// turn towards RING3
@@ -54,17 +50,11 @@ void autonomous() {
 
 	// sweep blue ring away
 	intake.move_voltage(0);
-
 	turnPID(270);
-
 	sweeper.set_value(true);
-
 	pros::delay(500);
-
 	turnPID(180);
-
 	sweeper.set_value(false);
-
 	intake.move_voltage(12000);
 
 	// align towards RING4
@@ -73,7 +63,6 @@ void autonomous() {
 	// drive towards RING4
 	drive->moveRawAsync(1000);
 	pros::delay(3500);
-
 	intake.move_voltage(-12000);
 	drive->moveRawAsync(100);
 	pros::delay(750);
@@ -86,13 +75,11 @@ void autonomous() {
 	// drive towards RING5
 	drive->setMaxVelocity(150);
 	drive->moveRawAsync(700);
-	
 	pros::delay(2000);
 	intake.move_voltage(0);
 	
-	// turn to corner MIGHT NOT BE TURNING ENOUGH, CHECK
+	// turn to corner
 	turnPID(-50);
-
 	intake.move_voltage(-12000);
 	pros::delay(2000);
 	intake.move_voltage(0);
@@ -100,7 +87,6 @@ void autonomous() {
 	// move to corner
 	drive->moveRawAsync(-425);
 	pros::delay(750);
-
 	clamp.set_value(false);
 	pros::delay(1000);
 
@@ -116,42 +102,33 @@ void autonomous() {
 	// drive to MG2
 	drive->moveRawAsync(-1450);
 	pros::delay(2150);
-
 	clamp.set_value(true);
-
 	intake.move_voltage(0);
 	pros::delay(1000);
 
 	// turn to RING6
 	turnPID(270);
-
 	intake.move_voltage(12000);
 
 	// drive to RING6
 	drive->moveRaw(550);
 	pros::delay(1500);
-
 	intake.move_voltage(0);
-
 	clamp.set_value(true);
 	pros::delay(500);
 
 	// turn to corner
 	turnPID(70);
-
 	clamp.set_value(false);
 	pros::delay(500);
 
 	// drive to corner
 	drive->moveRawAsync(-1400);
 	pros::delay(5000);
-
 	clamp.set_value(false);
-
 	drive->moveRaw(100);
 	turnPID(15);
 	drive->moveRawAsync(400);
-
 	pros::delay(500);
 	intake.move_voltage(6000);
 	pros::delay(1000);
@@ -168,9 +145,7 @@ void autonomous() {
 	drive->moveRawAsync(-1400);
 	pros::delay(1000);
 	intake.move_voltage(0);
-
 	clamp.set_value(true);
-
 	pros::delay(1000);
 	intake.move_voltage(12000);
 	pros::delay(2000);
