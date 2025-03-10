@@ -13,23 +13,6 @@ void competition_initialize() {}
 
 void autonomous() {}
 
-void score_alliance() {
-	drive->setMaxVelocity(100);
-	intake.move_voltage(12000);
-	drive->moveRawAsync(250);
-	pros::delay(800);
-	intake.move_voltage(0);
-
-	pros::delay(250);
-	intake.move_voltage(-6000);
-	pros::delay(250);
-	intake.move_voltage(0);
-
-	drive->moveRaw(-300);
-	intake.move_voltage(12000);
-	pros::delay(1250);
-}
-
 void opcontrol() {
 
 	bool clampToggle = false, clampLatch = false, sweeperToggle = false, sweeperLatch = false;
@@ -49,10 +32,6 @@ void opcontrol() {
 		
 		else 
 			drive->getModel()->tank(leftY, rightY);
-		
-		// score alliance stake
-		if(master.getDigital(ControllerDigital::right))
-			score_alliance();
 
 		// intake
 		if(master.getDigital(ControllerDigital::L2))
